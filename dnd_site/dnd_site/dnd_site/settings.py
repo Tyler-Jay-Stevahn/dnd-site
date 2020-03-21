@@ -25,7 +25,7 @@ SECRET_KEY = '21*u6fx@e+n@c@x%0j3wvu*f$xsr&r%7nw0+@2#5dntwb3*4&5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://tylers-dnd-site.herokuapp.com/']
 
 
 # Application definition
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'dnd_site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['template'],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'dnd_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd13p0g0bkpor3r', 
-        'USER': 'njmivolvyzlzuy',
-        'PASSWORD': '57ae5bd78a1465930c9db72346af6228ee31d9328cb5a76ac29d6c4c485f007a',
-        'HOST':  'ec2-18-213-176-229.compute-1.amazonaws.com',
+        'NAME': 'des7pj7e0vhh1j', 
+        'USER': 'vjcxsbybnruaap',
+        'PASSWORD': 'b53ae461a19b2817c4354a30270cb69517671fc99c6d67d68f43c0c6e91eabfd',
+        'HOST':  'ec2-52-207-93-32.compute-1.amazonaws.com',
         'PORT':  '5432',
 
     }
@@ -123,4 +123,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+import django_heroku
+django_heroku.settings(locals())
